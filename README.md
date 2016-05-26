@@ -124,7 +124,7 @@ telecom operators should verify that messages sent to emergency numbers
 are actually originating from the phone they claim to be originating
 from.
 
-Telecom operators must ensure that calls and messages to emergency
+Telecom operators must ensure that both calls and messages to emergency
 numbers are routed to the same organization, especially in roaming
 scenarios.
 
@@ -132,7 +132,7 @@ Telecom operators may choose to make calls and/or messages to emergency
 numbers free of charge for the phone service user. They may also choose
 to allow these calls and messages when a phone does not have a SIM, or
 has a SIM which is not valid on their network. These policies should be
-in line with their current emergency call policies.
+in line with their existing emergency call policies.
 
 Emergency response infrastructure
 ---------------------------------
@@ -146,7 +146,7 @@ The emergency service must:
     same number.
 2.  Filter messages that have location information from messages that
     do not. Valid location messages will only have the geo URI, either
-    in the text or the UDH, and no other text content.
+    in the body or the UDH, and no other text content.
 3.  Allow geo URIs with more parameters than specified in the protocol,
     as long as the location and uncertainty are present. Phones may
     choose to append additional diagnostic information in the URIs; or
@@ -154,12 +154,18 @@ The emergency service must:
 4.  Update location information as it is received in their database
     records associated with that particular call.
 5.  Store all location records received.
-6.  Determine If the caller is moving by looking at the
+6.  Determine if the caller is moving by looking at the
     location records. If the distance between two records is more than
-    the uncertainty values, the caller is most likely to be moving.
+    the uncertainty values, the caller is likely to be moving.
 7.  Further forward this location information to the
     responders assigned. The service may use whatever system they have
     in place already to provide location updates as they come in.
+
+Fine-tuning
+-----------
+
+There are six parameters in the system (t0, t1, t2, p0, p1, p2) which
+can be fine-tuned (based on actual usage, perhaps.)
 
 Caveats
 -------
